@@ -1,7 +1,7 @@
 import { Formik } from "formik";
-import {FormStyled, FieldStyled, SearchBtn, SearchBtnLabel} from 'components/Searching/Searching.styled'
+import {FormStyled, FieldStyled, SearchBtn, SearchBtnLabel} from 'components/MovieSection/SearchingBar/SearchBar.styled'
 
-export const SearchBar = () => {
+export const SearchBar = ({setmovieTitle, setGalleryData, }) => {
 
 
     return (
@@ -12,8 +12,8 @@ export const SearchBar = () => {
                                                     if (movieName.trim() === '') {
                                                         return;
                                                     };
-                                                    // setRequest(movieName);
-                                                    // setDataToRender([]);
+                                                    setmovieTitle(movieName);
+                                                    setGalleryData([]);
                                                     // setPage(1);
                                                     // setSearchingStatus(undefined);
                                                     actions.resetForm();
@@ -28,7 +28,7 @@ export const SearchBar = () => {
                         name="movieName"
                         className="input"
                         type="text"
-                        autoComplete="off"
+                        autoComplete="on"
                         autoFocus
                         placeholder="Search movie"
                     />

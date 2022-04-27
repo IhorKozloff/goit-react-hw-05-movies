@@ -1,11 +1,13 @@
-import { SearchBar } from 'components/Searching/Searching';
 import { Section, Container } from 'components/GlobalStyles/GlobalStyles.styled';
+import { MovieSection } from 'components/MovieSection/MovieSection';
+
+
 export const MoviesView = () => {
     return(
         
-        <Section>
+        <Section className='section-search-and-gallery'>
             <Container>
-                <SearchBar/>
+                <MovieSection/>
             </Container>
         </Section>
         

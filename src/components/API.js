@@ -17,12 +17,18 @@ export async function searchAPITop (page) {
     };
 }
 
+export async function searchAPIByName(title, page) {
+    try {
+        const response = await axios.get(`/search/movie?api_key=${API_KEY}&query=${title}&page=${page}`);
+        return response.data;
+    } catch (error) {
+        console.error('Упс, ошибочка вышла');
+    };
+}
 
 
 
 
-
-// /trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
 // /search/search-movies поиск кинофильма по ключевому слову на странице фильмов.
 // /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.
 // /movies/get-movie-credits запрос информации о актёрском составе для страницы кинофильма.
