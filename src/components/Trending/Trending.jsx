@@ -21,7 +21,7 @@ export const Trending = () => {
             <Container>
                 <h2>Trending</h2>
                 <ul>
-                    {trendingList.map(({id, original_title}) => <ItemMovieLink key={id}>{original_title}</ItemMovieLink>)}
+                    {trendingList.map(({id, original_title}) => <ItemMovieLink key={id} id={id}>{original_title}</ItemMovieLink>)}
                 </ul>
             </Container>
         </Section>

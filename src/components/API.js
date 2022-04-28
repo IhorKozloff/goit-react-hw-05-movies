@@ -26,6 +26,14 @@ export async function searchAPIByName(title, page) {
     };
 }
 
+export async function searchAPIById(id) {
+    try {
+        const response = await axios.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
+        return response.data;
+    } catch (error) {
+        console.error('Упс, ошибочка вышла');
+    };
+}
 
 
 
