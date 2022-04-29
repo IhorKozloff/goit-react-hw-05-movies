@@ -2,6 +2,7 @@ import { Section, Container } from 'components/GlobalStyles/GlobalStyles.styled'
 import { MovieSection } from 'components/MovieSection/MovieSection';
 
 
+
 export const MoviesView = () => {
     return(
         

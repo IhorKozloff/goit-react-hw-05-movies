@@ -35,9 +35,25 @@ export async function searchAPIById(id) {
     };
 }
 
+export async function searchAPIActors(id) {
+    try {
+        const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}&language=en-US`);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Упс, ошибочка вышла');
+    };
+}
 
 
-// /search/search-movies поиск кинофильма по ключевому слову на странице фильмов.
-// /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.
-// /movies/get-movie-credits запрос информации о актёрском составе для страницы кинофильма.
-// /movies/get-movie-reviews запрос обзоров для страницы кинофильма.
+export async function searchAPIReviews(id) {
+    try {
+        const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Упс, ошибочка вышла');
+    };
+}
+
+
