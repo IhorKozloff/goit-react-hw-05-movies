@@ -1,9 +1,15 @@
 import { Formik } from "formik";
-import {FormStyled, FieldStyled, SearchBtn, SearchBtnLabel} from 'components/MovieSection/SearchingBar/SearchBar.styled'
+import {FormStyled, FieldStyled, SearchBtn, SearchBtnLabel} from 'components/SearchingBar/SearchBar.styled'
+import { useNavigate } from "react-router-dom";
 
-export const SearchBar = ({setmovieTitle, setGalleryData, }) => {
 
 
+
+
+export const SearchBar = ({setmovieTitle, setmovieList, }) => {
+    let navigate = useNavigate();
+
+    
     return (
         <Formik 
             initialValues={{movieName:''}} 
@@ -12,8 +18,10 @@ export const SearchBar = ({setmovieTitle, setGalleryData, }) => {
                                                     if (movieName.trim() === '') {
                                                         return;
                                                     };
-                                                    setmovieTitle(movieName);
-                                                    setGalleryData([]);
+                                                    const query = `?query=${movieName}`;
+                                                    setmovieTitle(query);
+                                                    setmovieList([]);
+                                                    navigate(query)
                                                     // setPage(1);
                                                     // setSearchingStatus(undefined);
                                                     actions.resetForm();

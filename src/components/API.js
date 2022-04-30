@@ -19,7 +19,7 @@ export async function searchAPITop (page) {
 
 export async function searchAPIByName(title, page) {
     try {
-        const response = await axios.get(`/search/movie?api_key=${API_KEY}&query=${title}&page=${page}`);
+        const response = await axios.get(`/search/movie${title}&api_key=${API_KEY}&page=${page}`);
         return response.data;
     } catch (error) {
         console.error('Упс, ошибочка вышла');

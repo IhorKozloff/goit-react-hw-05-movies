@@ -1,33 +1,39 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { UpSideBar } from 'components/Views/UpSideBar';
-import { Trending } from 'components/Trending/Trending';
-import { MoviesView } from 'components/Views/MoviesView';
-import { MovieDetailsView } from "components/Views/MovieDetailsView";
-import { Cast } from 'components/Cast/Cast';
-import { Reviews } from 'components/Reviews/Reviews';
 
+
+import { Layout } from 'Pages/Layout';
+import { HomePage } from 'Pages/HomePage';
+import { MoviesPage } from 'Pages/MoviesPage';
+import { MovieDetailsPage } from 'Pages/MovieDetailsPage';
+import { Cast } from 'components/Cast/Cast';
+import { Reviews } from 'components/Reviews/Reviews'
 
 export const App = () => {
 
   return (
     <>
-     <Routes>
-        <Route path="/" element={<UpSideBar/>}>
-          <Route index element={<Trending/>}/>
-          
-          <Route path="movies" element={<MoviesView/>}/>
-          <Route path="movies/:movieId" element={<MovieDetailsView/>}>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<HomePage/>}/>
+          <Route path="movies" element={<MoviesPage/>}/>
+          <Route path="movies/:movieId" element={<MovieDetailsPage/>}>
             <Route path="cast" element={<Cast/>}></Route>
             <Route path="reviews" element={<Reviews/>}></Route>
           </Route>
-          
         </Route>
-        
-      </Routes>
-    
 
-     
+
+
+
+
+      </Routes>
     </>
   );
 };
+
+// '/' - компонент <HomePage>, домашняя страница со списком популярных кинофильмов.
+// '/movies' - компонент <MoviesPage>, страница поиска фильмов по ключевому слову.
+// '/movies/:movieId' - компонент <MovieDetailsPage>, страница с детальной информацией о кинофильме.
+// /movies/:movieId/cast - компонент <Cast>, информация о актерском составе. Рендерится на странице <MovieDetailsPage>.
+// /movies/:movieId/reviews - компонент <Reviews>, информация об обзорах. Рендерится на странице <MovieDetailsPage>.
