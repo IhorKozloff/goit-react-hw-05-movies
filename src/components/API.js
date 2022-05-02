@@ -10,7 +10,6 @@ const API_KEY = "8b9c2b35d1bc0d9e8879c4faa9dd8b75";
 export async function searchAPITop (page) {
     try {
         const response = await axios.get(`/trending/movie/day?api_key=${API_KEY}&page=${page}`);
-        console.log(response.data)
         return response.data;
     } catch (error) {
         console.error('Упс, ошибочка вышла');
@@ -19,7 +18,7 @@ export async function searchAPITop (page) {
 
 export async function searchAPIByName(title, page) {
     try {
-        const response = await axios.get(`/search/movie${title}&api_key=${API_KEY}&page=${page}`);
+        const response = await axios.get(`/search/movie?query=${title}&api_key=${API_KEY}&page=${page}`);
         return response.data;
     } catch (error) {
         console.error('Упс, ошибочка вышла');
@@ -38,7 +37,6 @@ export async function searchAPIById(id) {
 export async function searchAPIActors(id) {
     try {
         const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}&language=en-US`);
-        console.log(response.data);
         return response.data;
     } catch (error) {
         console.error('Упс, ошибочка вышла');
@@ -49,7 +47,7 @@ export async function searchAPIActors(id) {
 export async function searchAPIReviews(id) {
     try {
         const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`);
-        console.log(response.data);
+      
         return response.data;
     } catch (error) {
         console.error('Упс, ошибочка вышла');

@@ -7,8 +7,8 @@ export const AddInform = () => {
             <InformWrapper>
                 <p>Additional information</p>
                 <ul>
-                    <li><InformLink to="cast">Cast</InformLink></li>
-                    <li><InformLink to="reviews">Reviews</InformLink></li>
+                    <li><InformLink to="cast" >Cast</InformLink></li>
+                    <li><InformLink to="reviews" >Reviews</InformLink></li>
                 </ul>
             </InformWrapper>
         </>

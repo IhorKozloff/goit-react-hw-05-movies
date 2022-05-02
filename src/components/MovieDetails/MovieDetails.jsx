@@ -1,11 +1,13 @@
 import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { searchAPIById } from 'components/API';
+
 import { MovieDetalesWrapper, MovieDetalesInform } from 'components/MovieDetails/MovieDetails.styled'
 
 export const MovieDetails = () => {
     const { movieId } = useParams();
     const [data, setData] = useState(null)
+    
 
 
     useEffect(() => {
@@ -23,6 +25,7 @@ export const MovieDetails = () => {
         
 
         <>
+
             {data && 
                 <MovieDetalesWrapper className="movie-detales-wrapper">
 

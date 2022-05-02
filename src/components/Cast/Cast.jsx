@@ -3,11 +3,10 @@ import { useParams } from "react-router-dom";
 import { CastWrapper } from 'components/Cast/Cast.styled';
 import { searchAPIActors } from 'components/API';
 
+
 export const Cast = () => {
   const [actorsListData, setActorsListData] = useState(null);
   const { movieId } = useParams();
-
-
     
     useEffect(() => {
         searchAPIActors(movieId).then(data => {
