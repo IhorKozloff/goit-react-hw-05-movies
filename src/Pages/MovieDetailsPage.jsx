@@ -5,7 +5,8 @@ import { GoBackBtn } from 'components/GoBackBtn';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 
-export const MovieDetailsPage = () => {
+export default function MovieDetailsPage () {
+
     const location = useLocation();
     const navigate = useNavigate();
     const [backLink, setBackLink] = useState(location?.state?.from ?? '/');

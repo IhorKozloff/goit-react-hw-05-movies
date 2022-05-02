@@ -4,7 +4,7 @@ import { SearchBar } from 'components/SearchingBar/SearchBar';
 import { searchAPIByName } from 'components/API';
 import { ItemMovieLink } from 'components/ItemMovieLink/ItemMovieLink';
 
-export const MoviesPage = () => {
+export default function MoviesPage () {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const [movieList, setmovieList] = useState(null);

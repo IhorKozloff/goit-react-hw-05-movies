@@ -1,34 +1,42 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 
-import { Layout } from 'Pages/Layout';
-import { HomePage } from 'Pages/HomePage';
-import { MoviesPage } from 'Pages/MoviesPage';
-import { MovieDetailsPage } from 'Pages/MovieDetailsPage';
-import { Cast } from 'components/Cast/Cast';
-import { Reviews } from 'components/Reviews/Reviews'
+// import { Layout } from 'Pages/Layout';
+// import { HomePage } from 'Pages/HomePage';
+// import { MoviesPage } from 'Pages/MoviesPage';
+// import { MovieDetailsPage } from 'Pages/MovieDetailsPage';
+// import { Cast } from 'components/Cast/Cast';
+// import { Reviews } from 'components/Reviews/Reviews'
+
+const Layout = lazy(() => import('../Pages/Layout.jsx'));
+const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
+const MoviesPage = lazy(() => import('../Pages/MoviesPage.jsx'));
+const MovieDetailsPage = lazy(() => import('../Pages/MovieDetailsPage.jsx'));
+const Cast = lazy(() => import('..//components/Cast/Cast.jsx'));
+const Reviews = lazy(() => import('..//components/Reviews/Reviews.jsx'));
+const PageNotFound = lazy(() => import('../Pages/PageNotFound.jsx'));
+
 
 export const App = () => {
 
   return (
-    <>
+    
+    <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<HomePage/>}/>
-          <Route path="movies" element={<MoviesPage/>}/>
-          <Route path="movies/:movieId" element={<MovieDetailsPage/>}>
-            <Route path="cast" element={<Cast/>}></Route>
-            <Route path="reviews" element={<Reviews/>}></Route>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<HomePage/>}/>
+            <Route path="movies" element={<MoviesPage/>}/>
+            <Route path="movies/:movieId" element={<MovieDetailsPage/>}>
+              <Route path="cast" element={<Cast/>}></Route>
+              <Route path="reviews" element={<Reviews/>}></Route>
+            </Route>
+            <Route path="*" element={<PageNotFound/>}/>
           </Route>
-        </Route>
-
-
-
-
-
-      </Routes>
-    </>
+        </Routes>
+    </Suspense>
+      
+    
   );
 };
 

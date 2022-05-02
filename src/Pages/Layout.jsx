@@ -3,7 +3,7 @@ import { Section, Container } from 'components/GlobalStyles/GlobalStyles.styled'
 import { Outlet } from 'react-router-dom'
 
 
-export const Layout = () => {
+export default function Layout () {
     return (
         <>
             <HeaderBar/>

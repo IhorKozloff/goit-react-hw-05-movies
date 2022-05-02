@@ -4,7 +4,7 @@ import { CastWrapper } from 'components/Cast/Cast.styled';
 import { searchAPIActors } from 'components/API';
 
 
-export const Cast = () => {
+export default function Cast () {
   const [actorsListData, setActorsListData] = useState(null);
   const { movieId } = useParams();
     

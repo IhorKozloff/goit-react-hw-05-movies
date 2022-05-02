@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { searchAPITop } from 'components/API';
 import { ItemMovieLink } from 'components/ItemMovieLink/ItemMovieLink';
 
-export const HomePage = () => {
+export default function HomePage () {
     const [trendingList, setTrendingList] = useState([]);
     const location = useLocation();
    
