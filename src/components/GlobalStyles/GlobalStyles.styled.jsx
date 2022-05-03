@@ -10,3 +10,6 @@ export const Section = styled.section`
     width: 1024px;
     padding-top: 20px;
 `;
+export const Btn = styled.button`
+    margin-bottom: 10px;
+`;

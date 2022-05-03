@@ -16,13 +16,13 @@ const MovieDetailsPage = lazy(() => import('../Pages/MovieDetailsPage.jsx'));
 const Cast = lazy(() => import('..//components/Cast/Cast.jsx'));
 const Reviews = lazy(() => import('..//components/Reviews/Reviews.jsx'));
 const PageNotFound = lazy(() => import('../Pages/PageNotFound.jsx'));
-
+const Loader = lazy(() => import('..//components/Loader/Loader.jsx'));
 
 export const App = () => {
 
   return (
     
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<Loader/>}>
       <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<HomePage/>}/>
