@@ -4,7 +4,9 @@ import { CastWrapper } from 'components/Cast/Cast.styled';
 import { searchAPIActors } from 'components/API';
 
 
+
 export default function Cast () {
+    
   const [actorsListData, setActorsListData] = useState(null);
   const { movieId } = useParams();
     
@@ -41,6 +43,5 @@ export default function Cast () {
                 </ul>
             </CastWrapper>}
         </>
-    )
-}
-//original_name profile_path character
+    );
+};

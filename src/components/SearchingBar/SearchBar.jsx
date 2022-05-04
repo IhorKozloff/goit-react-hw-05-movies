@@ -1,8 +1,8 @@
 import { Formik } from "formik";
 import {FormStyled, FieldStyled, SearchBtn, SearchBtnLabel} from 'components/SearchingBar/SearchBar.styled'
+import PropTypes from 'prop-types';
 
-
-export const SearchBar = ({setSearchParams, setmovieList, }) => {
+export const SearchBar = ({setSearchParams, setmovieList }) => {
 
 
 
@@ -17,9 +17,7 @@ export const SearchBar = ({setSearchParams, setmovieList, }) => {
                                                     };
                                                     setSearchParams({query: movieName})
                                                     setmovieList([]);
-                                                    
-                                                    // setPage(1);
-                                                    // setSearchingStatus(undefined);
+
                                                     actions.resetForm();
                                                 }}>
 
@@ -43,9 +41,7 @@ export const SearchBar = ({setSearchParams, setmovieList, }) => {
 
 };
 
-// SearchBar.propTypes = {
-// setRequest: PropTypes.func.isRequired,
-// setDataToRender: PropTypes.func.isRequired, 
-// setPage: PropTypes.func.isRequired, 
-// setSearchingStatus: PropTypes.func,
-// }
+SearchBar.propTypes = {
+    setmovieList: PropTypes.func.isRequired,
+    setSearchParams: PropTypes.func.isRequired, 
+}

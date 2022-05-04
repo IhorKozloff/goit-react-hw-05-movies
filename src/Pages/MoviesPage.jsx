@@ -17,7 +17,7 @@ export default function MoviesPage () {
 
         if(movieTitle !== ''){
             
-            searchAPIByName(movieTitle, 1).then(data => {
+            searchAPIByName(movieTitle).then(data => {
                 setmovieList(data.results)
             });  
         }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { AddInform } from 'components/AddInform/AddInform';
 import { GoBackBtn } from 'components/GoBackBtn';
@@ -9,13 +9,17 @@ export default function MovieDetailsPage () {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const [backLink, setBackLink] = useState(location?.state?.from ?? '/');
-    
+    const [backLink, setBackLink] = useState('');
+
+    useEffect(() => {
+       if(backLink !== '') {
+            return
+       };
+       setBackLink(location?.state?.from ?? '/')
+    },[backLink, location?.state?.from])
+     
     
     const onBackClick = () => {
-        if( 5 > 10) {
-            setBackLink('Это что б линтер не ругался на неиспользуемый setBackLink')
-        }
         navigate(backLink)
     }
 

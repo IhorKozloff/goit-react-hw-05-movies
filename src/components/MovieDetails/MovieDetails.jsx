@@ -1,7 +1,6 @@
 import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { searchAPIById } from 'components/API';
-
 import { MovieDetalesWrapper, MovieDetalesInform } from 'components/MovieDetails/MovieDetails.styled'
 
 export const MovieDetails = () => {
